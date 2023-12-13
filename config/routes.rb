@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :cars do
     collection do
       post :import
+      get :search
     end
   end
 end

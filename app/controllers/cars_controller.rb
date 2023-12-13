@@ -8,7 +8,7 @@ class CarsController < ApplicationController
 
   def import
     # Controller validation to csv file extention
-    return redirect_to cars_path, notice: "csv file only, please!" unless @file.content_type == "text/csv"
+    return redirect_to cars_path, notice: "csv file only, please!" unless @file&.content_type == "text/csv"
     # Call to import cars service
     success, message = CsvImportCarsService.new.call(@file)
     # Response
@@ -17,6 +17,9 @@ class CarsController < ApplicationController
     else
       redirect_to cars_path, notice: "Import cars error.", status: :unprocessable_entity
     end
+  end
+
+  def search
   end
 
   private
