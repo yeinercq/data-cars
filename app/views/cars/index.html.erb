@@ -1,11 +1,12 @@
 <div class="container">
-  Ahora tenemos <strong><%= @cars.count %></strong> carros en la base de datos.
-
   <div class="mt-2 import-form">
-    <%= form_with url: import_cars_path, method: :post, class: "form-control" do |f| %>
+    <h2>Import car data</h2>
+    <%= form_with url: import_cars_path, method: :post, class: "form-control shadow-sm" do |f| %>
       <%= f.file_field :file, class: "form-control", accept: ".csv" %>
       <%= f.button "Import", class: "btn btn-primary mt-2" %>
     <% end %>
+    Ahora tenemos <strong><%= @cars.count %></strong> carros en la base de datos.
   </div>
+
 
 </div>
