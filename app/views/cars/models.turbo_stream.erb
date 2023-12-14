@@ -1,0 +1,4 @@
+<%# Updates model select with @models from controller %>
+<%= turbo_stream.update @target do %>
+  <%= options_for_select @models %>
+<% end %>

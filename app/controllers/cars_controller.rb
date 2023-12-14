@@ -22,6 +22,14 @@ class CarsController < ApplicationController
   def search
   end
 
+  def models
+    @models = Car.where(brand: params[:model]).group(:model).count.map { |key, value| [key, key] }
+    @target = params[:target]
+    respond_to do |format|
+      format.turbo_stream
+    end
+  end
+
   private
 
   def set_file

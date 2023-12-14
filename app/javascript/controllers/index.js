@@ -4,5 +4,8 @@
 
 import { application } from "./application"
 
+import CarModelController from "./car_model_controller"
+application.register("car-model", CarModelController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
