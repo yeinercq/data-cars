@@ -27,7 +27,7 @@ class CarsController < ApplicationController
                 .group("production_year")
 
     request.each {|r| @data.store(r.production_year, r.price) }
-    
+    # debugger
     respond_to do |format|
       format.html
       format.turbo_stream

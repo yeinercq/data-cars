@@ -1,7 +1,7 @@
 <%= turbo_stream.update "charts" do %>
   <% unless @data.nil? %>
-    <% @data.each do |element| %>
-      <h2><%= element %></h2>
-    <% end %>
+    <div data-controller="line-chart" data-line-chart-labels-value="<%= @data.keys %>" data-line-chart-values-value="<%= @data.values %>">
+      <canvas id="chart" data-line-chart-target="chart"></canvas>
+    </div>
   <% end %>
 <% end %>

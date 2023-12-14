@@ -9,3 +9,6 @@ application.register("car-model", CarModelController)
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+import LineChartController from "./line_chart_controller"
+application.register("line-chart", LineChartController)
