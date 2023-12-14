@@ -2,7 +2,7 @@
   <h2>Search car data</h2>
   <%# Seach form %>
   <div class="d-flex justify-content-center border rounded py-4 shadow-sm" data-controller="car-model" data-car-model-url-value="<%= models_cars_path %>" data-car-model-param-value="model">
-    <%= form_with( url: search_cars_path, method: :get, data: { turbo_stream: true, turbo_frame: 'inventory_items'}, class: "d-block d-md-flex flex-row flex-wrap gap-2 justify-content-end align-items-center" ) do |form| %>
+    <%= form_with( url: search_cars_path, method: :get, data: { turbo_stream: true, turbo_frame: 'charts'}, class: "d-block d-md-flex flex-row flex-wrap gap-2 justify-content-end align-items-center" ) do |form| %>
       
       <div class="col-auto mb-2">
         <%= form.select :brand, Car.group(:brand).count.map { |key, value| [key, key] }.sort, { prompt: "Brand" }, { class: 'form-select', data: { action: "change->car-model#change" } } %>
@@ -17,4 +17,8 @@
       </div>
     <% end %>
   </div>
+
+  <%= turbo_frame_tag "charts" do %>
+    
+  <% end %>
 </div>

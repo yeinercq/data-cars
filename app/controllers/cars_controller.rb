@@ -20,6 +20,18 @@ class CarsController < ApplicationController
   end
 
   def search
+    @data = {}
+    request = Car.where(brand: params[:brand])
+                .where(model: params[:model])
+                .select("production_year, avg(price) as price")
+                .group("production_year")
+
+    request.each {|r| @data.store(r.production_year, r.price) }
+    
+    respond_to do |format|
+      format.html
+      format.turbo_stream
+    end
   end
 
   def models

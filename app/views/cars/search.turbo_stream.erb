@@ -1,0 +1,7 @@
+<%= turbo_stream.update "charts" do %>
+  <% unless @data.nil? %>
+    <% @data.each do |element| %>
+      <h2><%= element %></h2>
+    <% end %>
+  <% end %>
+<% end %>
